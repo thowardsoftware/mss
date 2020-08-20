@@ -1,0 +1,78 @@
+{% extends "index_user.html" %}
+
+{% block content %}
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard for Client</h1>
+      </div>
+
+      <div class="table-responsive">
+
+        <table class="table table-striped table-sm">
+          <tbody>
+            <tr>
+                <td>
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col profile-divs">
+                                <h5 class = "profile-style1">Book Room For Meeting</h5>
+                                <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/auth/newmeeting">Book</a></button></div>
+                            </div>
+
+                            <div class="col profile-divs">
+                                <h5 class = "profile-style1">View Meetings You Created</h5>
+                                <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/meetings-participation">Display</a></button></div>
+                            </div>
+
+                            <div class="w-100"></div>
+                            <hr>
+
+                            <div class="col profile-divs">
+                                <h5 class = "profile-style1">Pay For Special Room</h5>
+                                <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/pay_for_special">Pay</a></button></div>
+                            </div>
+
+                            <div class="col profile-divs">
+                                <h5 class = "profile-style1">View Meetings You Are Participating</h5>
+                                <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/participation-as-member">Display</a></button></div>
+                            </div>
+
+                            <div class="w-100"></div>
+                            <hr>
+
+                            <div class="col profile-divs">
+                                <h5 class = "profile-style1">View Booked Special Rooms</h5>
+                                <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/view/special_payments">Display</a></button></div>
+                            </div>
+
+                             <div class="col profile-divs">
+                                <h5 class = "profile-style1">Edit Meeting: Change date, time or participants</h5>
+                                 <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/meetings-participation">Edit Meeting</a></button></div>
+                            </div>
+
+
+                            <div class="w-100"></div>
+                            <hr>
+
+                             <div class="col profile-divs">
+                                <h5 class = "profile-style1">Edit Profile</h5>
+                                 <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/edit/profile">Edit Profile</a></button></div>
+                            </div>
+
+                             <div class="col profile-divs">
+                                <h5 class = "profile-style1">File Complaint</h5>
+                                 <div class="btn-mystyle"><button class="btn btn-outline-primary"><a href="/file_complaint">File</a></button></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+{% endblock %}

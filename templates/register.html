@@ -1,0 +1,189 @@
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% extends "index.html" %}
+
+{% block content %}
+
+<div class="container page-form">
+    <h1>Register New User</h1>
+
+  <div class="form-row">
+
+    <div class="col-md-5 mb-2">
+        <button class="btn btn-outline-dark" onclick="myFunction()">Register as Admin</button>
+
+    </div>
+    <div class="col-md-5 mb2">
+        <button class="btn btn-outline-dark" onclick="myFunction2()">Enter Credit Card</button>
+    </div>
+
+
+  </div>
+    <script>
+    function myFunction() {
+
+      var lab = document.getElementById("admin-label");
+      var x = document.getElementById("admincode");
+      if (x.style.display === "none") {
+        lab.style.display = "block";
+        x.style.display = "block";
+      } else {
+        lab.style.display = "none";
+        x.style.display = "none";
+      }
+
+      var changeVal = document.getElementById('admin');
+      if (changeVal.value == "0") {
+        changeVal.value = "1";
+      }
+      else {
+        changeVal.value = "0";
+      }
+    }
+    </script>
+
+    <script>
+        function myFunction2() {
+          var x = document.getElementById("entercard");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+
+        }
+    </script>
+
+
+    <!-- BEGIN FORM HERE -->
+<form class="needs-validation" id="register-form" action="/auth/register" method="post" novalidate>
+    <div class="form-row" id="entercode" >
+        <input type="password" class="form-control" id="admin" name="admin" value="0" style="display:none;">
+        <label id="admin-label" style="display:none;">Enter Provided Code to Register as Admin:</label>        
+        <input type="password" class="form-control" id="admincode" name="admincode" placeholder="Enter code provided to you" value="" style="display:none;">
+    </div>
+    <div class="form-row" id="entercard" style="display:none;">
+          <div class="form-row">
+              <div class="col-md-6 mb-1">
+              <label for="cardname">Name on Card</label>
+              <input type="text" class="form-control" id="cardname" name="cardname" placeholder="Name as it appears on card" value="">
+              <div class="invalid-feedback">
+                Please provide name on card.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6 mb-1">
+              <label for="cardnumber">Credit Card Number</label>
+              <input type="password" class="form-control" id="cardnumber" name="cardnumber" placeholder="XXXX XXXX XXXX XXXX" value="">
+              <div class="invalid-feedback">
+                Please provide card number.
+              </div>
+            </div>
+          </div>
+
+        <div class="form-row">
+               <div class="col-md-3 mb-2">
+                    <label for="cardcode">Security Code</label>
+                    <input type="password" class="form-control" id="cardcode" name="cardcode" placeholder="123" value="">
+                    <div class="invalid-feedback">Please provide security code.</div>
+              </div>
+              <div class="col-md-3 mb-2">
+                 <label for="zipcode">Zip Code</label>
+                <input type="password" class="form-control" id="zipcode" name="zipcode" placeholder="XXXXX" value="">
+                <div class="invalid-feedback">Please provide zip code.</div>
+              </div>
+          </div>
+    </div>
+
+  <div class="form-row">
+    <div class="col-md-12 mb-2">
+      <label for="fname">First name</label>
+      <input type="text" class="form-control" id="fname" name="fname" placeholder="First name" value="" required>
+      <div class="invalid-feedback">
+        Please provide first name.
+      </div>
+    </div>
+    <div class="col-md-12 mb-2">
+      <label for="lastname">Last name</label>
+      <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last name" value="" required>
+      <div class="invalid-feedback">
+        Please provide last name.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12 mb-2">
+      <label for="email">Company Email</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="must use name@company email" value="" required>
+        <div class="invalid-feedback">
+          Please choose a username.
+        </div>
+    </div>
+
+    <div class="col-md-10 mb-2">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="8-10 characters" value="" required>
+      <div class="invalid-feedback">
+        Please provide a valid password.
+      </div>
+    </div>
+
+  </div>
+<hr>
+
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-outline-primary" type="submit">Submit form</button>
+</form>
+</div>
+
+    <!-- BUILT IN JS ALERT SYSTEM SCRIPTING HERE  -->
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+   window.addEventListener('load', function() {
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+
+            // if each line checks valid
+                 if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                 }
+            // else add to validated list
+                 form.classList.add('was-validated');
+            }, false);  // check form entries in loop
+        });
+   }, false);
+})();
+</script>
+
+{% endblock %}
